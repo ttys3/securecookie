@@ -102,7 +102,7 @@ func TestDecodeInvalid(t *testing.T) {
 	for i, v := range invalidCookies {
 		for _, enc := range []*base64.Encoding{
 			base64.StdEncoding,
-			base64.URLEncoding,
+			base64.RawURLEncoding,
 		} {
 			err := s.Decode("name", enc.EncodeToString([]byte(v)), &dst)
 			if err == nil {
